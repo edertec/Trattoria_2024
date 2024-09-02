@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Event Management</title>
+</head>
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('add_comprador') }}">Adicionar Comprador</a></li>
+                <li><a href="{{ url_for('add_ingresso') }}">Adicionar Ingresso</a></li>
+                <li><a href="{{ url_for('list_compradores') }}">Listar Compradores</a></li>
+                <li><a href="{{ url_for('list_ingressos') }}">Listar Ingressos</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Listar Compradores{% endblock %}
+
+{% block body %}
+<h2>Listar Compradores</h2>
+<ul>
+    {% for comprador in compradores %}
+    <li>{{ comprador.id }} - {{ comprador.nome }} - {{ comprador.email }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

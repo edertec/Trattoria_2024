@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Listar Ingressos{% endblock %}
+
+{% block body %}
+<h2>Listar Ingressos</h2>
+<ul>
+    {% for ingresso in ingressos %}
+    <li>{{ ingresso.id }} - Evento: {{ ingresso.evento }} - Titular: {{ ingresso.titular }} - Contato: {{ ingresso.email_contato }} - Pago: {{ 'Sim' if ingresso.pago else 'Não' }} - Telefone: {{ ingresso.telefone }} - Restrições: {{ ingresso.restricoes_alimentares }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

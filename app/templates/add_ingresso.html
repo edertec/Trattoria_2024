@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Adicionar Ingresso{% endblock %}
+
+{% block body %}
+<h2>Adicionar Ingresso</h2>
+<form method="post">
+    <label for="evento">Evento:</label>
+    <input type="text" id="evento" name="evento" required><br>
+
+    <label for="comprador_id">Comprador:</label>
+    <select id="comprador_id" name="comprador_id" required>
+        {% for comprador in compradores %}
+        <option value="{{ comprador.id }}">{{ comprador.nome }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="titular">Titular:</label>
+    <input type="text" id="titular" name="titular" required><br>
+
+    <label for="email_contato">E-mail para contato:</label>
+    <input type="email" id="email_contato" name="email_contato" required><br>
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone" required><br>
+
+    <label for="pago">Pago:</label>
+    <input type="checkbox" id="pago" name="pago"><br>
+
+    <label for="restricoes_alimentares">Restrições Alimentares:</label>
+    <input type="text" id="restricoes_alimentares" name="restricoes_alimentares"><br>
+
+    <input type="submit" value="Salvar Ingresso">
+</form>
+{% endblock %}
