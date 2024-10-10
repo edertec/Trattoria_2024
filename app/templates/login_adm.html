@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar/Ocultar Senha</title>
+</head>
+<style>
+    input[type="submit"]{
+        margin-bottom: 10px;
+    }
+    ul {
+            list-style-type: none; 
+    }
+
+
+</style>
+<body>
+    <h2>Login</h2>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+        <form method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+        
+            <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                <span class="toggle-password" onclick="togglePassword('password_hash')">👁️</span>
+        
+        <ul>
+        <input type="submit" value="Entrar">
+    </ul>
+
+    <script>
+        function togglePassword(fieldId) {
+            const passwordInput = document.getElementById(fieldId);
+            const passwordIcon = passwordInput.nextElementSibling;
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.textContent = '🙈';  // Ícone para ocultar
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.textContent = '👁️';  // Ícone para mostrar
+            }
+        }
+    </script>
+</body>
+</html>

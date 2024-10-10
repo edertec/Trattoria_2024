@@ -9,3 +9,6 @@ psycopg2-binary==2.9.9
 SQLAlchemy==2.0.32
 typing_extensions==4.12.2
 Werkzeug==3.0.4
+flask_login
+flask_bcrypt    
+flask_mail

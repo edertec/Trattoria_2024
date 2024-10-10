@@ -1,0 +1,630 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Baskervville SC", serif;
+    margin: 0;
+    color: #be8343;
+}
+
+body::-webkit-scrollbar {
+    background-color: rgb(2, 20, 10);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #d8b24c;
+    border: solid rgb(2, 20, 10);
+    border-radius: 15px;
+    width: 6px;
+
+}
+
+.flash {
+    position: fixed;
+    justify-self: center;
+
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    margin: 2vh;
+    padding: 1vh;
+    border-radius: 5px;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.back-img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    width: 100%;
+    height: 120vh;
+    
+    background-image: url('../img/pampa.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(50%);
+
+    position: absolute;
+    top: 0;
+    z-index: -80;
+}
+
+/* CABEÇALHO, BOTAO DE MENU */
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2vw;
+}
+
+.menu-barras {
+    width: calc(1vw + 2.5vh);
+    transition: 500ms ease;
+}
+
+.menu-barras:hover {
+    width: calc(1.2vw + 2.5vh);
+    filter: brightness(120%);
+}
+
+.menu-active {
+    transform: scaleX(-1);
+}
+
+.usuario {
+    display: flex;
+    flex-direction: row;
+}
+
+.login_btn {
+    font: unset;
+    font-weight: 800;
+    font-size: calc(1vw + .5vh);
+    color: #e5bd86;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    position: relative;
+    transition: 250ms;
+}
+
+.login_btn:hover {
+    transition: .3s ease;
+    color: #be8343; 
+}
+
+.imagem_usuario{
+    right: 0;
+    width: calc(1vw + 2.5vh);
+
+    transition: 500ms;
+}
+
+.imagem_usuario:hover {
+    right: 0;
+    width: calc(1.2vw + 2.5vh);
+
+    transition: 500ms;
+    filter: brightness(120%);
+}
+
+/* MENU ATIVADO */
+.drop {
+    display: block;
+
+    height: 15vh;
+    width: 10vw;
+
+    margin-top: -20px;
+    margin-left: -200px;
+
+    flex-direction: column;
+    position: absolute;
+    transition: 250ms ease-in;
+}
+
+.active {
+    transition: 250ms ease-out;
+    margin-left: 2vw; 
+}
+
+.drop-text {
+    font: unset;
+    font-weight: 800;
+    font-size: calc(1vw + .5vh);
+    color: #e5bd86;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    position: relative;
+    transition: 250ms;
+}
+
+.drop-text::after{
+    position: absolute;
+    content: " ";
+    background-color: #e5bd86;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+
+    transition: 250ms;
+}
+
+.drop-text:hover::after {
+    position: absolute;
+    content: " ";
+    background-color: #e5bd86;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+
+    transition: 250ms;
+}
+
+.drop-text:hover {
+    transition: .3s ease;
+    color: #be8343;
+}
+
+
+/* TELA INICIAL COM TITULO E SUBTITULO */
+.home-div {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.bistro {
+    position: absolute;
+    margin: 0;
+    font-size: calc(5vh + 5vw);
+    font-weight: 100;
+    font-family: "Herr Von Muellerhoff", cursive;
+    padding-bottom: calc(51vh + 9vw);
+    padding-right: calc(25vw + 15vh);
+
+    z-index: -1;
+}
+
+.title {
+    margin: 0px;
+
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-size: calc(3vh + 3vw);
+    color: #d8b24c;
+
+    transition: 250ms;
+}
+
+.title:hover {
+    font-size: calc(3.2vh + 3.2vw);
+
+    transition: 250ms;
+}
+
+.sub-title {
+    margin: 0;
+
+    color: #d8b24c;
+    text-align: center;
+
+    font-size: calc(2vh + 1.5vw);
+    font-weight: 400;
+}
+
+.btn-compra {
+    color: #be8343;
+
+    margin: 0;
+    font-size: calc(1vh + 1vw);
+    font-weight: 400;
+
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-compra::after{
+    position: absolute;
+    content: " ";
+    background-color: #e5bd86;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+
+    transition: 250ms;
+}
+
+.btn-compra:hover::after {
+    width: 100%;
+    transition: 250ms;
+}
+
+.div-compra {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    padding: 6vh 0 1vh 0;
+}
+
+.colchete_esq {
+    rotate: 180deg;
+}
+
+.colchete {
+    width: 3vh;
+
+    cursor: pointer;
+}
+
+.data {
+    color: #e5bd86;
+    font-size: calc(1vh + 1vw);
+    font-weight: 400;
+
+    margin: 0;
+    text-align: center;
+
+    padding-bottom: 30vh;
+}
+
+.data::after {
+    color: #e5bd86;
+    font-size: calc(1vh + 1vw);
+    font-weight: 400;
+
+    margin: 0;
+    text-align: center;
+    padding-bottom: 30vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    height: 400vh;
+
+    background: rgb(2,20,10);
+    background: linear-gradient(0deg, rgb(2, 20, 10) 90%, rgba(67,65,16,0) 100%);
+
+    margin-top: -40vh;
+    padding-top: 10vh;
+    padding-bottom: 25vh;
+}
+
+.title2 { 
+    margin: 0px;
+    margin-top: 40vh;
+
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-size: calc(3vh + 3vw);
+
+    align-self: center;
+}
+
+.prato {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    justify-content: center;
+
+    margin: 8vw 10vw 8vh 10vw;
+}
+
+.texto-prato{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    z-index: 1;
+}
+
+.chapeu{
+    position: absolute;
+    width: calc(12vw + 10vh);
+    margin-top: 55vh;
+    left: 40px;
+    opacity: 50%;
+    z-index: -1;
+
+    transition: 250ms;
+}
+
+.chapeu:hover{
+    width: calc(12.2vw + 10.2vh);
+}
+
+.gaucho{
+    position: absolute;
+    width: calc(7vw + 5vh);
+    margin-top: 25vh;
+    right: 50px;
+    opacity: 50%;
+    z-index: 0;
+
+    transition: 250ms;
+}
+
+.gaucho:hover{
+    width: calc(7.2vw + 5.2vh);
+}
+
+.texto-prato-inv{
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+}
+
+.title-prato {
+    font-size: calc(2.5vh + 2vw);
+
+    color: antiquewhite;
+
+    margin: 0;
+}
+
+.info-prato {
+    font-size: calc(1vh + 1vw);
+    font-weight: 400;
+    margin: 0;
+
+    text-align: justify;
+
+    width: 90%;
+
+    color: antiquewhite;
+}
+
+.div_img_prato {
+    display: flex;
+
+    justify-content: end;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.div_img_prato_inv {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.img_churrasco {
+    width: 90%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.ingred {
+    font-size: calc(1vh + .5vw);
+    font-weight: 400;
+
+    color: antiquewhite;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    
+
+    padding: 0 10vw 0 10vw;
+
+    background: rgb(2,20,10);
+}
+
+.title3 {
+    margin: 0px;
+    margin-bottom: 5vh;
+
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-size: calc(3vh + 3vw);
+}
+
+.linha-tempo{
+    width: calc(5vw + 3vh);
+}
+
+.tops {
+    display: flex;
+
+    flex-direction: row;
+
+    margin-bottom: 5vh;
+}
+
+.img_top {
+    width: calc(5vw + 3vh);
+}
+
+.texto-topicos{
+    font-size: calc(1vh + 1vw);
+    font-weight: 400;
+
+    text-align: justify;
+
+    margin-left: 2vw;
+
+    width: 100%;
+
+    color: antiquewhite;
+}
+
+.curso{
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    justify-content: center;
+
+    margin: 8vw 10vw 8vh 10vw;
+}
+
+.curso-img{
+    display: flex;
+    align-items: center;
+}
+
+.curso-desc{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    z-index: 1;
+}
+
+.curso-texto{
+    font-size: calc(1vh + 1vw);
+    font-weight: 400;
+    margin: 0;
+
+    width: 90%;
+
+    color: antiquewhite;
+}
+
+.mapa{
+    width: 40vw;
+    border-radius: 5px;
+}
+
+.container3{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    padding: 0 10vw 0 10vw;
+
+    background: rgb(2,20,10);
+}
+
+.fale-conosco{
+    display: flex;
+    flex-direction: column;
+
+    width: 35%;
+
+    margin-left: 4vw;
+}
+
+.fale{
+    color: #be8343;
+
+    margin: 0;
+    padding-left: 1vw;
+    font-size: calc(1.5vh + 1.5vw);
+    font-weight: 400;
+}
+
+.redes{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.insta{
+    width: 5%; 
+    margin: 0;  
+}
+
+.container4{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 10vw 10vh 10vw;
+
+    background: rgb(2,20,10);
+}
+
+.space {
+    height: 20vh;
+    background: rgb(2,20,10);
+}
+
+.patrocinios{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 10vw 0 10vw;
+
+    background: rgb(2,20,10);
+
+    padding-bottom: 10vh;
+}
+
+.logo {
+    width: 30vw;
+}
+
+.ucs{
+    width: 20vw;
+}
+
+@media (max-width: 680px) {
+    .container {
+        height: 280vh;
+    }
+
+    .space {
+        height: 0;
+    }
+
+    .container4{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mapa {
+        margin-top: 5vh;
+        width: 80vw; 
+    }
+
+    .fale {
+        margin-top: 2vh;
+        padding-left: 0;
+    }
+
+    .fale-conosco {
+        justify-content: center;
+        text-align: center;
+
+        margin-left: 0;
+    }
+
+    .texto-topicos {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .redes {
+        justify-content: center;
+    }
+}

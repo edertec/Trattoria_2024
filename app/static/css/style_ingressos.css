@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+
+a{
+    color: #d8b24c;
+}
+
+body {
+    font-family: "Baskervville SC", serif;
+    background-color: #02140a;
+    color: #be8343;
+    margin: 20px;
+    padding: 0;
+}
+
+.voltar {
+    font-size: calc(1vh + 1vw);
+}
+
+.title-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin: 0;
+    margin-top: 10vh;
+    padding: 0 1vw 0 1vw;
+    font-size: calc(2vw + 2vh);
+    border: #be8343 2px solid;
+    color: #d8b24c;
+}
+
+.all_ingressos {
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+.div_ingresso {
+    background-image: url(../img/bilhete.svg);
+    background-position: 0;
+    background-size: cover;
+
+    padding: 1vw 6vw 1vw 6vw;
+}
+
+.paguinho{
+    color: #d8b24c;;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.usuario{
+    background-color: #082214;
+    width: 50vw;
+    height: 40vh;
+    border: solid 2px #be8343;
+    margin-top: 5vh;
+}
+
+h2 {
+    text-align: center;
+
+    font-size: calc(1vw + 1.5vh);
+
+    margin-right: 2vw;
+    margin-left: 2vw;
+}
+
+h4 {
+    font-weight: 400;
+    text-align: center;
+
+    font-size: calc(.5vw + 1vh);
+
+    margin-right: 2vw;
+    margin-left: 2vw;
+}

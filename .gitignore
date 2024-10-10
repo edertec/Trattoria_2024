@@ -2,3 +2,4 @@ venv
 app/__PyChache__/
 __PyChache__
 .vercel
+.venv

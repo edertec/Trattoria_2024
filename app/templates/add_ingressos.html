@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style_compra.css">
+    <title>Compra de Ingressos</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h4 class="voltar"><a href="{{ url_for('index') }}">Voltar</a></h4>
+    
+    <ul>
+        <li>Ingressos disponíveis: {{ users }}</li>
+    </ul>
+    
+    <div class="title-div">
+        <h2 class="title">Compra de Ingressos</h2>
+    </div>
+
+    <!-- Aviso de limite de ingressos -->
+    <p id="warning-message" class="warning">Você atingiu o número máximo de ingressos disponíveis!</p>
+
+    <form method="post" action="{{ url_for('add_ingressos') }}">
+        <div class="button-container">
+            <button type="button" id="add-button" class="add-button" onclick="addTicket()">+</button>
+            <button type="button" class="remove-button" onclick="removeTicket()">−</button>
+        </div>
+        
+        <div id="tickets-list" class="tickets-list-div">
+            <!-- Os ingressos serão adicionados aqui dinamicamente -->
+        </div>
+
+        <div class="div-finalizar" >
+            <button type="submit" class="btn-finalizar">Finalizar Compra</button>
+        </div>
+    </form>
+
+    <script>
+        let ticketCount = 0;
+        const maxTickets = {{ users | tojson }}; // Número de ingressos disponíveis passado pelo servidor
+
+        function addTicket() {
+            if (ticketCount >= maxTickets) {
+                document.getElementById('warning-message').style.display = 'block';
+                document.getElementById('add-button').disabled = true;
+                return;
+            }
+
+            ticketCount++;
+
+            // Criar o modelo de ingresso
+            const ticketContainer = document.createElement('div');
+            ticketContainer.className = 'ticket-container';
+            ticketContainer.setAttribute('id', 'ticket-' + ticketCount); // Adiciona um id para o ticket
+
+            ticketContainer.innerHTML = `
+                <h3>Ingresso ${ticketCount}</h3>
+                <label for="nome-${ticketCount}">Nome do Titular:</label>
+                <input type="text" id="nome-${ticketCount}" name="titular-${ticketCount}" placeholder="Digite o nome do titular" required>
+
+                <label for="email-${ticketCount}">Email:</label>
+                <input type="email" id="email-${ticketCount}" name="email_contato-${ticketCount}" placeholder="Digite o email" required>
+
+                <label for="telefone-${ticketCount}">Telefone:</label>
+                <input type="tel" id="telefone-${ticketCount}" name="telefone-${ticketCount}" placeholder="Digite o telefone" required>
+
+                <label for="restricoes-${ticketCount}">Restrições Alimentares:</label>
+                <textarea id="restricoes-${ticketCount}" name="restricoes_alimentares-${ticketCount}" placeholder="Escreva quaisquer restrições alimentares"></textarea>
+            
+                            
+                <label for="tipo-${ticketCount}">Tipo do Ingresso </label>
+
+                <div class="type">
+                    <label class="tit" for="adulto-${ticketCount}">Adulto</label>
+                    <input class="botao" type="radio" id="adulto-${ticketCount}" name="tipo-${ticketCount}" value="adulto">
+                </div>
+
+                <div class="type">
+                    <label class="tit" for="infantil-${ticketCount}">Infantil</label>
+                    <input class="botao" type="radio" id="infantil-${ticketCount}" name="tipo-${ticketCount}" value="infantil">
+                </div>
+            `;
+
+            // Adicionar o novo ingresso à lista
+            document.getElementById('tickets-list').appendChild(ticketContainer);
+
+            // Verificar novamente se atingiu o limite de ingressos
+            if (ticketCount >= maxTickets) {
+                document.getElementById('warning-message').style.display = 'block';
+                document.getElementById('add-button').disabled = true;
+            }
+        }
+
+        function removeTicket() {
+            // Verifica se há ingressos adicionados
+            if (ticketCount > 0) {
+                // Remove o último ingresso adicionado
+                const lastTicket = document.getElementById('ticket-' + ticketCount);
+                if (lastTicket) {
+                    lastTicket.remove();
+                    ticketCount--;
+                }
+
+                // Se o aviso estiver sendo exibido, esconda-o e habilite o botão
+                if (ticketCount < maxTickets) {
+                    document.getElementById('warning-message').style.display = 'none';
+                    document.getElementById('add-button').disabled = false;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

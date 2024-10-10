@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+
+body {
+    font-family: "Baskervville SC", serif;
+    background-color: #02140A;
+    margin: 0;
+}
+
+a {
+    color: #be8343;
+}
+
+.voltar {
+    font-size: calc(1vh + 1vw);
+}
+
+.title {
+    font-size: 30px;
+    color: #be8343;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#box {
+    background-color: #082214;
+    padding: 30px; /* Reduzido para melhor ajuste em telas pequenas */
+    width: 100%; /* Ajustado para usar toda a largura disponível */
+    max-width: 500px; /* Limita a largura máxima */
+    border-radius: 10px;
+}
+
+.form-group label {
+    color: #be8343;
+    font-size: 20px;
+}
+
+input[type="email"], 
+input[type="password"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #be8343; 
+    background-color: #02140A; 
+    color: #be8343; 
+}
+
+.msg {
+    color: #be8343;
+}
+
+.submit-button {
+    background-color: #be8343; /* Cor do botão ajustada */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    cursor: pointer;
+    font-family: "Baskervville SC", serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px; 
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.submit-button:hover { 
+    background-color: #a56a33; /* Cor ao passar o mouse */
+    box-shadow: #103622 0 0 20px 5px;
+}
+
+#link-cadastro {
+    text-transform: uppercase;
+    font-family: "Baskervville SC", serif;
+    color: #be8343;
+    text-align: center; /* Centraliza o texto */
+}
+
+.bg-dark {
+    background-color: #082214 !important;
+}

@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+
+body {
+    font-family: "Baskervville SC", serif;
+    background-color: #02140a;
+    color: #be8343;
+    margin: 20px;
+    padding: 0;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: calc(3vh + 3vw);
+    text-align: center;
+}
+
+a{
+    color: #d8b24c;
+}
+
+.title{
+    border: 2px solid #d8b24c;
+    padding: 0 1vw 0 1vw;
+}
+
+.title-div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.voltar{
+    font-size: calc(1vh + 1vw);;
+}
+
+.button-container {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.add-button, .remove-button {
+    width: 6vh;
+    height: 6vh;
+    
+    margin-right: 1vw;
+    margin-left: 1vw;
+    font-size: calc(1vw + 1vh);
+    background-color: #02140a;
+    color: white;
+    border: #be8343 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo quando o botão está desativado */
+.add-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Organiza os ingressos por linha e coluna */ 
+.tickets-list-div {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 3.5vh;
+}
+
+.ticket-container {
+    background-color: #02140a;
+
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-size: calc(1vw + 1vh);
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    border: 1px solid #ccc;
+
+    margin: 2vw;
+    border-radius: 5px;
+    width: 90vw;
+    margin: 0 2vw 2vw 2vw;
+}
+
+.botao{
+    width: 1vw;
+    margin: 0;
+}
+
+.tit{
+    margin: 0.5vw;
+}
+
+.type{
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    display: block;
+    margin-top: 5px;
+    margin-right: 40px;
+
+    color: #d8b24c;
+}
+
+/* Titulo ingressos */
+h3 {
+    font-size: calc(1.5vw + 1vh);
+}
+
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+
+    background-color: #02140a00;
+    color: #ccc;
+
+    width: 98%;
+    height: 3vh;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #be8343;
+    border-radius: 4px;
+}
+
+::-webkit-input-placeholder {
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    color: #8a8484;
+}
+
+input[type='radio'] {
+    accent-color: #be8343;
+}
+
+input::before {
+    border: 0;
+}
+
+.div-finalizar {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-finalizar {
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-size: calc(.5vw + 1.5vh);
+
+    justify-self: center;
+
+    color: white;
+
+    border: 2px solid #be8343;
+    border-radius: 5px;
+    background-color: #02140a;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+/* Estilo para a mensagem de aviso */
+.warning {
+    color: red;
+    font-weight: bold;
+    display: none; /* Por padrão, a mensagem está oculta */
+}

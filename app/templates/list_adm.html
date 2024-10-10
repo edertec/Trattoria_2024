@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Listar Usuarios</h2>
+        <ul>
+            <h3>id - nome - email</h3>
+            {% for user in users %}
+            <li>{{ user.id }} - {{ user.name }} - {{ user.email }} - {{'ADM' if user.is_admin else 'Não'}} </li>
+            {% endfor %}
+        </ul><br><br>
+        
+        <h2>Listar Compradores</h2>
+        <ul>
+            <h3>id - nome - email - cpf - numero </h3>
+            {% for comprador in compradores %}
+            <li>{{ comprador.id }} - {{ comprador.name }} - {{ comprador.email }} - {{ comprador.cpf }} - {{ comprador.numero }} </li>
+            {% endfor %}
+        </ul><br><br>
+
+        <h2>Listar Ingressos</h2>
+        <ul>
+            <h3>id - id_comprador - nome_titular - email - telefone - restricoes </h3>
+            <form method="POST" action="/list_adm">
+                {% for ingresso in ingressos %}
+                <li>{{ ingresso.id }} - {{ ingresso.comprador_id }} - {{ ingresso.titular }} - {{ ingresso.email_contato }} - {{ ingresso.telefone }} - {{ ingresso.restricoes_alimentares }} - {{'Infantil' if ingresso.tipo else 'Adulto'}} - <br>Pago:{{'Sim' if ingresso.pago else 'Não'}}<br>
+                    <input type="hidden" name="id_{{ ingresso.id }}" value="{{ ingresso.id }}"> <!-- Campo oculto -->
+                    <input type="radio" id="pago_{{ ingresso.id }}" name="pagamento_{{ ingresso.id }}" value="pago" >
+                    <label for="pago_{{ ingresso.id }}">Pago</label><br>
+                    <input type="radio" id="nao_pago_{{ ingresso.id }}" name="pagamento_{{ ingresso.id }}" value="nao_pago">
+                    <label for="nao_pago_{{ ingresso.id }}">Não Pago</label><br><br>
+                </li>
+                {% endfor %}
+                <input type="submit" value="Verificar pagamento">
+            </form>
+
+        </ul>
+
+        
+</body>
+</html>

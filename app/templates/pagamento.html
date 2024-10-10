@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style_pagamento.css">
+    <title>Pagamento</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <div class="voltar-div">
+        <h3 class="voltar"><a href="{{url_for('list_ingressos_usuario')}}">Voltar</a></h3>
+    </div>
+
+    <div class="container">
+        <div class="title-div">
+            <h1 class="title">VALIDAÇÃO DE INGRESSO</h1>
+            <h2 class="sub">(Para validar seus ingressos você deve efetuar o pagamento dos mesmos)</h2>
+        </div>
+
+        <div class="container2">
+            <div class="all-ingressos">
+                {% for ingresso in ingressos %}
+                <div class="div_ingresso">
+                    <h2>Ingresso</h2>
+                    <h4>ID: {{ ingresso.id }} <br> Nome: {{ nome_usuario }} <br> Titular: {{ ingresso.titular }} <br> Email: {{
+                        ingresso.email_contato }} <br> Telefone: {{ ingresso.telefone }} <br> Restrições: {{ 'Nenhuma' if
+                        ingresso.restricoes_alimentares == "" else ingresso.restricoes_alimentares}}
+                        <br> Pago:{{'Sim' if ingresso.pago else 'Não'}}
+                </div>
+                {% endfor %}
+            </div>
+        
+            <div class="pix">
+                <h2>Pix do Pagamento</h2>
+                <h3 class="nome-pix">NOME: Julia Adelina Castilhos da Silva</h3>
+                <h3 class="nome-pix">CPF: 023.143.250-01</h3>
+                <img src="../static/img/qrcode.png" class="qr">
+            </div>
+    </div>
+</body>
+</html>
