@@ -5,11 +5,16 @@ a{
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+
     font-family: "Baskervville SC", serif;
     background-color: #02140a;
     color: #be8343;
     margin: 20px;
     padding: 0;
+
+    align-items: center;
 }
 
 .voltar {
@@ -38,6 +43,8 @@ body {
     flex-wrap: wrap;
 
     justify-content: center;
+
+    margin-top: 5vh;
 }
 
 .div_ingresso {
@@ -50,18 +57,18 @@ body {
 
 .paguinho{
     color: #d8b24c;;
+    margin-top: 2vw;
 }
 
 .info{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-}
-
-.usuario{
-    background-color: #082214;
     width: 50vw;
-    height: 40vh;
+
+    background-color: #082214;
+    height: 50vh;
     border: solid 2px #be8343;
     margin-top: 5vh;
 }
@@ -69,18 +76,65 @@ body {
 h2 {
     text-align: center;
 
-    font-size: calc(1vw + 1.5vh);
+    font-size: calc(1.2vw + 1vh);
 
     margin-right: 2vw;
     margin-left: 2vw;
 }
 
+h3 {
+    text-align: center;
+    font-size: calc(.8vw + 1vh);   
+}
+
+
 h4 {
     font-weight: 400;
     text-align: center;
 
-    font-size: calc(.5vw + 1vh);
+    font-size: calc(.8vw + .5vh);
 
     margin-right: 2vw;
     margin-left: 2vw;
+}
+
+@media (max-width: 680px) {
+    .div_ingresso {
+        display: flex;
+        flex-direction: column;
+        background-image: url(../img/bilhete.svg);
+        background-position: 0;
+        background-size: cover;
+
+        width: 50vw;
+        height: 50vw;
+
+        justify-content: center ;
+    
+        padding: 1vw 6vw 1vw 6vw;
+    }
+
+    h2 {
+        text-align: center;
+    
+        font-size: calc(1.5vw + 1vh);
+
+        margin: 0;
+    
+        margin-right: 2vw;
+        margin-left: 2vw;
+        margin-bottom: 2vw;
+    }
+
+    h4 {
+        font-weight: 400;
+        text-align: center;
+    
+        font-size: calc(1vw + .8vh);
+
+        margin: 0;
+    
+        margin-right: 2vw;
+        margin-left: 2vw;
+    }
 }

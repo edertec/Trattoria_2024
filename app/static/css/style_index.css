@@ -127,7 +127,7 @@ header{
     height: 15vh;
     width: 10vw;
 
-    margin-top: -20px;
+    margin-top: -.5vh;
     margin-left: -200px;
 
     flex-direction: column;
