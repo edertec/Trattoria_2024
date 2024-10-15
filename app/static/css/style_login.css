@@ -10,6 +10,18 @@ a {
     color: #be8343;
 }
 
+body::-webkit-scrollbar {
+    background-color: rgb(2, 20, 10);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #d8b24c;
+    border: solid rgb(2, 20, 10);
+    border-radius: 15px;
+    width: 6px;
+
+}
+
 .voltar {
     font-size: calc(1vh + 1vw);
 }

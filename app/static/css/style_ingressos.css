@@ -13,8 +13,18 @@ body {
     color: #be8343;
     margin: 20px;
     padding: 0;
+}
 
-    align-items: center;
+body::-webkit-scrollbar {
+    background-color: rgb(2, 20, 10);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #d8b24c;
+    border: solid rgb(2, 20, 10);
+    border-radius: 15px;
+    width: 6px;
+
 }
 
 .voltar {
@@ -60,17 +70,33 @@ body {
     margin-top: 2vw;
 }
 
+.usuario-img{
+    width: 3vw;
+    margin: 0.5vw;
+}
+
+.info-txt{
+    margin: 0.5vw;
+}
+
 .info{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
     justify-content: center;
-    width: 50vw;
+    width: 30vw;
 
     background-color: #082214;
-    height: 50vh;
+    height: 40vh;
     border: solid 2px #be8343;
     margin-top: 5vh;
+}
+
+.usu{
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
 }
 
 h2 {
@@ -83,10 +109,8 @@ h2 {
 }
 
 h3 {
-    text-align: center;
     font-size: calc(.8vw + 1vh);   
 }
-
 
 h4 {
     font-weight: 400;
