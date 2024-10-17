@@ -6,7 +6,7 @@ a {
 }
 
 .voltar {
-    font-size: calc(1vh + 1vw);
+    font-size: calc(1.5vh + 1vw);
 }
 
 .voltar-div{
@@ -115,7 +115,7 @@ h4 {
     border-radius: 5px;
     background-color: #143925;
 
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -137,7 +137,7 @@ h3 {
 }
 
 .qr{
-    width: 15vw;
+    width: 25vw;
     margin-top: 2vh;
     border: #d8b24c 2px solid;
     border-radius: 5px;

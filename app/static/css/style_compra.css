@@ -35,6 +35,10 @@ a{
     padding: 0 1vw 0 1vw;
 }
 
+li{
+    font-size: calc(1.5vh + 1vw);
+}
+
 .title-div{
     display: flex;
     width: 100%;
@@ -42,7 +46,7 @@ a{
 }
 
 .voltar{
-    font-size: calc(1vh + 1vw);;
+    font-size: calc(1.5vh + 1vw);;
 }
 
 .button-container {
@@ -165,7 +169,7 @@ input::before {
 .btn-finalizar {
     font-family: "Baskervville SC", serif;
     font-weight: 400;
-    font-size: calc(.5vw + 1.5vh);
+    font-size: calc(1.5vw + 1.5vh);
 
     justify-self: center;
 
