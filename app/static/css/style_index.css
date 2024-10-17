@@ -148,7 +148,7 @@ header{
 .drop-text {
     font: unset;
     font-weight: 800;
-    font-size: calc(1vw + .5vh);
+    font-size: calc(1.vw + .5vh);
     color: #e5bd86;
     margin-bottom: 10px;
     cursor: pointer;
