@@ -35,6 +35,11 @@
         <div class="div_ingresso">
             <h2>Ingresso</h2>
             <h4>ID: {{ ingresso.id }}  <br>  Nome: {{ nome_usuario }} <br> Titular: {{ ingresso.titular }}  <br>  Email: {{ ingresso.email_contato }}  <br>  Telefone: {{ ingresso.telefone }}  <br>  Restrições: {{ 'Nenhuma' if ingresso.restricoes_alimentares == "" else ingresso.restricoes_alimentares}}</h4>
+            {% if ingresso.tipo == 0 %}
+                <h4>Tipo: Adulto</h4>
+                {% else %}
+                    <h4>Tipo: Criança</h4>
+            {% endif %}
             <h4 class="paguinho">PAGO:{{'SIM' if ingresso.pago else 'NÃO'}}</h4> 
         </div>
         {% endfor %}

@@ -71,7 +71,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .usuario-img{
-    width: 3vw;
+    width: calc(1.5vw + 3vh);
     margin: 0.5vw;
 }
 
@@ -84,10 +84,11 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     
     justify-content: center;
-    width: 30vw;
+    align-items: center;
+    width: 60vw;
 
     background-color: #082214;
-    height: 40vh;
+    height: 50vh;
     border: solid 2px #be8343;
     margin-top: 5vh;
 }

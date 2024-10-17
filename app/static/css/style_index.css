@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nanum+Myeongjo&display=swap');
 
 a{
     text-decoration: none;
@@ -335,6 +336,10 @@ header{
 }
 
 .texto-prato{
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 300;
     display: flex;
     flex-direction: column;
 
@@ -373,6 +378,10 @@ header{
 }
 
 .texto-prato-inv{
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+
     display: flex;
     flex-direction: column;
 
@@ -380,6 +389,10 @@ header{
 }
 
 .title-prato {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-style: normal;
+
     font-size: calc(2.5vh + 2vw);
 
     color: antiquewhite;
@@ -420,6 +433,10 @@ header{
 }
 
 .ingred {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+
     font-size: calc(1vh + .5vw);
     font-weight: 400;
 
@@ -427,6 +444,10 @@ header{
 }
 
 .container2 {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+    
     display: flex;
     flex-direction: column;
 
@@ -572,7 +593,8 @@ header{
 .patrocinios{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     padding: 0 10vw 0 10vw;
 
     background: rgb(2,20,10);
@@ -581,11 +603,13 @@ header{
 }
 
 .logo {
-    width: 30vw;
+    width: auto;
+    height: 15vh;
 }
 
 .ucs{
-    width: 20vw;
+    width: auto;
+    height: 10vh;
 }
 
 @media (max-width: 680px) {
