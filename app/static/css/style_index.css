@@ -106,6 +106,10 @@ header{
     color: #be8343; 
 }
 
+.slash {
+    font-size: calc(1vw + .5vh);
+}
+
 .imagem_usuario{
     right: 0;
     width: calc(1vw + 2.5vh);
@@ -305,12 +309,12 @@ header{
     display: flex;
     flex-direction: column;
 
-    height: 400vh;
+    height: 520vh;
 
     background: rgb(2,20,10);
     background: linear-gradient(0deg, rgb(2, 20, 10) 90%, rgba(67,65,16,0) 100%);
 
-    margin-top: -40vh;
+    margin-top: -50vh;
     padding-top: 10vh;
     padding-bottom: 25vh;
 }
@@ -333,6 +337,8 @@ header{
     justify-content: center;
 
     margin: 8vw 10vw 8vh 10vw;
+
+    padding: 0 8vw 0 8vw;
 }
 
 .texto-prato{
@@ -386,6 +392,7 @@ header{
     flex-direction: column;
 
     align-items: flex-end;
+    justify-content: center;
 }
 
 .title-prato {
@@ -414,21 +421,24 @@ header{
 
 .div_img_prato {
     display: flex;
-
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     border-radius: 5px;
 }
 
 .div_img_prato_inv {
     display: flex;
+    justify-content: center;
     align-items: center;
     border-radius: 5px;
 }
 
 .img_churrasco {
-    width: 90%;
+    width: 50%;
     height: auto;
+
+    object-fit: cover;
+
     border-radius: 5px;
 }
 
@@ -447,7 +457,7 @@ header{
     font-family: "Nanum Myeongjo", serif;
     font-weight: 400;
     font-style: normal;
-    
+
     display: flex;
     flex-direction: column;
 
@@ -485,6 +495,11 @@ header{
 }
 
 .texto-topicos{
+
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+
     font-size: calc(1vh + 1vw);
     font-weight: 400;
 
@@ -604,17 +619,25 @@ header{
 
 .logo {
     width: auto;
-    height: 15vh;
+    height: 6vw;
 }
 
 .ucs{
     width: auto;
-    height: 10vh;
+    height: 6vw;
 }
 
 @media (max-width: 680px) {
     .container {
         height: 280vh;
+    }
+
+    .login_btn {
+        font-size: calc(2vw + .5vh);
+    }
+
+    .slash {
+        font-size: calc(2vw + .5vh); 
     }
 
     .space {

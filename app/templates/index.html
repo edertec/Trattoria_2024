@@ -26,7 +26,7 @@
                 <a href="{{ url_for('list_ingressos_usuario')}}"><img src="../static/img/usuario.svg" class="imagem_usuario" alt="pagina_usuario"></a>
             {% else %}
                 <a href="{{ url_for('login')}}"><h3 class="login_btn">Login</h3></a>
-                <h3 style="color: #e5bd86; font-size: calc(1vw + .5vh);">&nbsp;/&nbsp;</h3>
+                <h3 class="slash" style="color: #e5bd86;">&nbsp;/&nbsp;</h3>
                 <a href="{{ url_for('cadastro')}}"><h3 class="login_btn">Cadastro</h3></a>
             {% endif %}
         </div>
@@ -63,6 +63,20 @@
     <div class="container">
         <h1 class="title2" id="cardapio">CARDÁPIO</h1>
         <div class="prato">
+            <div class="div_img_prato_inv">
+                <img src="../static/img/couvert.jpg" class="img_churrasco" alt="churrasco_imagem">
+            </div>
+
+            <div class="texto-prato-inv">
+                <h2 class="title-prato">COUVERT</h2>
+                <img src="../static/img/gaucho.svg" alt="gaucho" class="gaucho">
+                <h3 class="info-prato">O prato objetiva representar os povos indígenas do RS – Guaranis, Kaingangs e Jês.</h3>
+            </div>
+
+            <h3 class="ingred">INGREDIENTES: Pão de milho crioulo e manteiga de erva-mate e limão</h3>
+        </div>
+
+        <div class="prato">
             <div class="texto-prato">
                 <h2 class="title-prato">ENTRADA</h2>
                 <img src="../static/img/chapeu.svg" alt="chapéu" class="chapeu">
@@ -71,7 +85,7 @@
             </div>
 
             <div class="div_img_prato">
-                <img src="../static/img/churrasco.jpg" class="img_churrasco" alt="churrasco_imagem">
+                <img src="../static/img/Legumes.jpg" class="img_churrasco" alt="churrasco_imagem">
             </div>
 
             <h3 class="ingred">INGREDIENTES: Salada de legumes assados (cenoura, tomate, cebola, abobrinha, berinjela e batata-doce), queijo quark, crem e copa.</h3>
@@ -79,7 +93,7 @@
 
         <div class="prato">
             <div class="div_img_prato_inv">
-                <img src="../static/img/churrasco.jpg" class="img_churrasco" alt="churrasco_imagem">
+                <img src="../static/img/Torteloni.jpg" class="img_churrasco" alt="churrasco_imagem">
             </div>
 
             <div class="texto-prato-inv">
@@ -90,7 +104,7 @@
                 nas charqueadas. Além disso, o prato faz referência à cor verde da bandeira do RS.</h3>
             </div>
 
-            <h3 class="ingred">INGREDIENTES: Canelone de espinafre com recheio de charque e moranga cabotiá ao molho de nata com manjerona.</h3>
+            <h3 class="ingred">INGREDIENTES: Torteloni de espinafre com recheio de charque e moranga cabotiá ao molho de nata com manjerona.</h3>
         </div>
 
         <div class="prato">
@@ -103,7 +117,7 @@
             </div>
         
             <div class="div_img_prato">
-                <img src="../static/img/churrasco.jpg" class="img_churrasco" alt="churrasco_imagem">
+                <img src="../static/img/Costela.jpg" class="img_churrasco" alt="churrasco_imagem">
             </div>
         
             <h3 class="ingred">INGREDIENTES: Arroz cremoso de tomate com costela assada.</h3>
@@ -111,7 +125,7 @@
 
         <div class="prato">
             <div class="div_img_prato_inv">
-                <img src="../static/img/churrasco.jpg" class="img_churrasco" alt="churrasco_imagem">
+                <img src="../static/img/Cheesecake.jpg" class="img_churrasco" alt="churrasco_imagem">
             </div>
         
             <div class="texto-prato-inv">
@@ -133,7 +147,7 @@
             </div>
         
             <div class="div_img_prato">
-                <img src="../static/img/churrasco.jpg" class="img_churrasco" alt="churrasco_imagem">
+                <img src="../static/img/Esfregolá.jpg" class="img_churrasco" alt="churrasco_imagem">
             </div>
         
             <h3 class="ingred">INGREDIENTES: Sfregola de uva</h3>
@@ -239,7 +253,7 @@
 
         <div class="fale-conosco">
             <h2 class="fale" id="fale">FALE CONOSCO</h2>
-            <p class="texto-topicos">Julia Adelina Castilhos da Silva - Administração <br> juliaavivan@gmail.com   +55 (54) 99203-2322</p>
+            <p class="texto-topicos">Julia Adelina Castilhos da Silva <br> (Administração) <br> juliaavivan@gmail.com <br>(54) 99203-2322</p>
             <div class="redes">
                 <img src="../static/img/insta.svg" alt="insta" class="insta">
                 <a href="https://www.instagram.com/bistro.auroradosul/"><h3>bistro.auroradosul</h3></a>
