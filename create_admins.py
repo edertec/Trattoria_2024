@@ -4,7 +4,8 @@ from app.models import Comprador_registrado3
 # Lista de e-mails e senhas para usuários administradores
 admin_users = [
     {"name": "Eduardo", "email": "pedroso@gmail.com", "password": "adminpassword1", "cpf":"69", "numero":"69"},
-    {"name": "Estevan", "email": "estevan@gmail.com", "password": "senha", "cpf":"24", "numero":"24"}
+    {"name": "Estevan", "email": "estevan@gmail.com", "password": "senha", "cpf":"24", "numero":"24"},
+    {"name": "admin", "email": "admin@gmail.com", "password": "senhaadmin", "cpf":"111111111", "numero":"111111111111"}
 ]
 
 # Função para adicionar usuários administradores
