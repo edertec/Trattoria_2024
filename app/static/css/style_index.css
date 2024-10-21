@@ -202,8 +202,8 @@ header{
     font-size: calc(5vh + 5vw);
     font-weight: 100;
     font-family: "Herr Von Muellerhoff", cursive;
-    padding-bottom: calc(51vh + 9vw);
-    padding-right: calc(25vw + 15vh);
+    padding-bottom: calc(57vh + 9vw);
+    padding-right: calc(28vw + 18vh);
 
     z-index: -1;
 }
@@ -302,6 +302,15 @@ header{
     margin: 0;
     text-align: center;
     padding-bottom: 30vh;
+}
+
+.valor{
+    display: flex;
+    flex-direction: row;
+}
+
+.cor-diferente{
+    color: #d8b24c;
 }
 
 .container {
@@ -549,6 +558,11 @@ header{
 .ti{
     width: 30vw;
     margin-right: 5vw;
+}
+
+.gastronomia {
+    width: 30vw;
+    margin-left: 5vw;
 }
 
 .mapa{
