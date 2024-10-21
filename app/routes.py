@@ -210,7 +210,8 @@ def list_ingressos_usuario():
 def list_adm():
     users = Comprador_registrado3.query.order_by(Comprador_registrado3.id).all()
     ingressos = Ingresso_registrado6.query.order_by(Ingresso_registrado6.id).all()
-    compradores = list(set([ingresso.comprador for ingresso in ingressos]))
+    compradores = sorted(set(ingresso.comprador for ingresso in ingressos), key=lambda c: c.id)
+   
 
     for key, value in request.form.items():
         if key.startswith('pagamento_'):
