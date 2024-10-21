@@ -8,7 +8,7 @@
 <body>
     <h2>Listar Usuarios</h2>
         <ul>
-            <h3>id - nome - email</h3>
+            <h3>id - nome - email - Admin</h3>
             {% for user in users %}
             <li>{{ user.id }} - {{ user.name }} - {{ user.email }} - {{'ADM' if user.is_admin else 'Não'}} </li>
             {% endfor %}
@@ -24,7 +24,7 @@
 
         <h2>Listar Ingressos</h2>
         <ul>
-            <h3>id - id_comprador - nome_titular - email - telefone - restricoes </h3>
+            <h3>id - id_comprador - nome_titular - email - telefone - restricoes - tipo - pago</h3>
             <form method="POST" action="/list_adm">
                 {% for ingresso in ingressos %}
                 <li>{{ ingresso.id }} - {{ ingresso.comprador_id }} - {{ ingresso.titular }} - {{ ingresso.email_contato }} - {{ ingresso.telefone }} - {{ ingresso.restricoes_alimentares }} - {{'Infantil' if ingresso.tipo else 'Adulto'}} - <br>Pago:{{'Sim' if ingresso.pago else 'Não'}}<br>
