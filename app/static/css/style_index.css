@@ -202,7 +202,7 @@ header{
     font-size: calc(5vh + 5vw);
     font-weight: 100;
     font-family: "Herr Von Muellerhoff", cursive;
-    padding-bottom: calc(57vh + 9vw);
+    padding-bottom: calc(56vh + 12vw);
     padding-right: calc(28vw + 18vh);
 
     z-index: -1;
@@ -578,7 +578,7 @@ header{
 
 .gastronomia {
     width: 30vw;
-    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 .mapa{
@@ -611,7 +611,7 @@ header{
 }
 
 .insta{
-    width: 5%; 
+    width: calc(2.5vw + 1.5vh); 
     margin: 0;  
 }
 
@@ -641,7 +641,7 @@ header{
 
     background: rgb(2,20,10);
 
-    padding-bottom: 10vh;
+    padding-bottom: 5vw;
 }
 
 .logo {
@@ -663,7 +663,7 @@ header{
     font-weight: 400;
     font-style: normal;
 
-    font-size: calc(.5vw + 1.5vh);
+    font-size: calc(1vw + 0.5vh);
 
     color: #be8343;
     background-color: rgb(2,20,10);
@@ -671,7 +671,7 @@ header{
     padding-bottom: 2vh;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 860px) {
     .container {
         height: 320vh;
     }
@@ -691,6 +691,37 @@ header{
     .container3{
         padding-top: 10vh;
         height: 130vh;
+    }
+
+    .curso {
+        flex-direction: column;
+
+        text-align: center;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .curso-img {
+        display: flex;
+        justify-content: center;
+    }
+
+    .curso-desc {
+        display: flex;
+        align-items: center;
+    }
+
+    .adm {
+        margin: 0;
+    }
+
+    .gastronomia {
+        margin: 0;
+    }
+
+    .ti {
+        margin: 0;
     }
 
     .container4{

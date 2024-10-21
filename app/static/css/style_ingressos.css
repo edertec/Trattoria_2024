@@ -123,6 +123,23 @@ h4 {
     margin-left: 2vw;
 }
 
+.footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: calc(1vw + 0.5vh);
+
+    color: #be8343;
+    background-color: rgb(2,20,10);
+
+    padding-bottom: 2vh;
+}
+
 @media (max-width: 680px) {
     .div_ingresso {
         display: flex;
