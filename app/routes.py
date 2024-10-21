@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session, abort
+from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, make_response
 from markupsafe import Markup
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
@@ -113,6 +113,9 @@ def login_adm():
 @app.route('/add_ingressos', methods=['GET', 'POST'])
 @login_required
 def add_ingressos():
+    # Limpar dados da sessão, se houver
+    session.pop('ingressos', None)  # Caso tenha algum dado da sessão
+
     users = 100 - Ingresso_registrado6.query.count()
     nome_do_comprador = current_user.name
 
@@ -122,6 +125,12 @@ def add_ingressos():
 
     if request.method == 'POST':
         ticket_count = 0
+        total_valor = 0
+
+        # Valores de ingresso para adulto e infantil
+        preco_adulto = 120.00
+        preco_infantil = 60.00
+
         while f'titular-{ticket_count+1}' in request.form:
             ticket_count += 1
 
@@ -139,6 +148,12 @@ def add_ingressos():
             tipo_verificado = request.form[f'tipo-{i+1}']
             tipo = tipo_verificado == 'infantil'
 
+            # Calcular o valor do ingresso
+            if tipo:
+                total_valor += preco_infantil
+            else:
+                total_valor += preco_adulto
+
             novo_ingresso = Ingresso_registrado6(
                 comprador_id=comprador_id,
                 titular=titular,
@@ -150,19 +165,30 @@ def add_ingressos():
             )
 
             db.session.add(novo_ingresso)
-
+        
         db.session.commit()
         flash('Obrigado pela compra! Por favor, realize o pagamento')
-        return redirect(url_for('pagamento'))
+        return redirect(url_for('pagamento', total_valor=total_valor))
 
-    return render_template('add_ingressos.html', nome_do_comprador=nome_do_comprador, users=users)
+    # Renderiza a página sem cache
+    response = make_response(render_template('add_ingressos.html', nome_do_comprador=nome_do_comprador, users=users))
+    
+    # Adiciona cabeçalhos para evitar cache
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'  # HTTP 1.1
+    response.headers['Pragma'] = 'no-cache'  # HTTP 1.0
+    response.headers['Expires'] = '0'  # Proxies
+
+    return response
+
 
 # Página de pagamento
 @app.route('/pagamento')
 @login_required
 def pagamento():
+    valor_total = Ingresso_registrado6.valor_total(current_user.id)
     ingressos = Ingresso_registrado6.query.filter_by(comprador_id=current_user.id, pago=False).all()
-    return render_template('pagamento.html', ingressos=ingressos, nome_usuario=current_user.name)
+    
+    return render_template('pagamento.html', ingressos=ingressos, nome_usuario=current_user.name, valor_total=valor_total)
 
 # Listagem de ingressos do usuário
 @app.route('/list_ingressos_usuario')

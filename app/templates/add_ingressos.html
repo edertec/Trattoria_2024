@@ -27,8 +27,7 @@
         <h2 class="title">Compra de Ingressos</h2>
     </div>
 
-    <!-- Aviso de limite de ingressos -->
-    <p id="warning-message" class="warning">Você atingiu o número máximo de ingressos disponíveis!</p>
+    <p id="warning-message" class="warning" style="display:none;">Você atingiu o número máximo de ingressos disponíveis!</p>
 
     <form method="post" action="{{ url_for('add_ingressos') }}">
         <div class="button-container">
@@ -40,7 +39,11 @@
             <!-- Os ingressos serão adicionados aqui dinamicamente -->
         </div>
 
-        <div class="div-finalizar" >
+        <div class="total-container">
+            <h3>Total: R$ <span id="total-amount">0.00</span></h3>
+        </div>
+
+        <div class="div-finalizar">
             <button type="submit" class="btn-finalizar">Finalizar Compra</button>
         </div>
     </form>
@@ -48,6 +51,18 @@
     <script>
         let ticketCount = 0;
         const maxTickets = {{ users | tojson }}; // Número de ingressos disponíveis passado pelo servidor
+        let totalAmount = 0;
+        const prices = {
+            'adulto': 120.00,
+            'infantil': 60.00
+        };
+
+        // Armazena o tipo de ingresso selecionado previamente para cada ingresso
+        const selectedTicketTypes = {};
+
+        function updateTotalAmount() {
+            document.getElementById('total-amount').innerText = totalAmount.toFixed(2);
+        }
 
         function addTicket() {
             if (ticketCount >= maxTickets) {
@@ -58,68 +73,95 @@
 
             ticketCount++;
 
-            // Criar o modelo de ingresso
             const ticketContainer = document.createElement('div');
             ticketContainer.className = 'ticket-container';
-            ticketContainer.setAttribute('id', 'ticket-' + ticketCount); // Adiciona um id para o ticket
+            ticketContainer.setAttribute('id', 'ticket-' + ticketCount);
 
             ticketContainer.innerHTML = `
-                <h3>Ingresso ${ticketCount}</h3>
-                <label for="nome-${ticketCount}">Nome do Titular:</label>
-                <input type="text" id="nome-${ticketCount}" name="titular-${ticketCount}" placeholder="Digite o nome do titular" required>
+            <h3>Ingresso ${ticketCount}</h3>
+            <label for="nome-${ticketCount}">Nome do Titular:</label>
+            <input type="text" id="nome-${ticketCount}" name="titular-${ticketCount}" placeholder="Digite o nome do titular" required>
 
-                <label for="email-${ticketCount}">Email:</label>
-                <input type="email" id="email-${ticketCount}" name="email_contato-${ticketCount}" placeholder="Digite o email" required>
+            <label for="email-${ticketCount}">Email:</label>
+            <input type="email" id="email-${ticketCount}" name="email_contato-${ticketCount}" placeholder="Digite o email" required>
 
-                <label for="telefone-${ticketCount}">Telefone:</label>
-                <input type="tel" id="telefone-${ticketCount}" name="telefone-${ticketCount}" placeholder="Digite o telefone" required>
+            <label for="telefone-${ticketCount}">Telefone:</label>
+            <input type="tel" id="telefone-${ticketCount}" name="telefone-${ticketCount}" placeholder="Digite o telefone" required>
 
-                <label for="restricoes-${ticketCount}">Restrições Alimentares:</label>
-                <textarea id="restricoes-${ticketCount}" name="restricoes_alimentares-${ticketCount}" placeholder="Escreva quaisquer restrições alimentares"></textarea>
+            <label for="restricoes-${ticketCount}">Restrições Alimentares:</label>
+            <textarea id="restricoes-${ticketCount}" name="restricoes_alimentares-${ticketCount}" placeholder="Escreva quaisquer restrições alimentares"></textarea>
             
-                            
-                <label for="tipo-${ticketCount}">Tipo do Ingresso</label>
-                <p class="texto-pequeno">*Crianças de 0 a 3 anos não pagam e não necessitam de ingresso</p>
+            <label for="tipo-${ticketCount}">Tipo do Ingresso</label>
+            <p class="texto-pequeno">*Crianças de 0 a 3 anos não pagam e não necessitam de ingresso</p>
 
-                <div class="type">
-                    <label class="tit" for="adulto-${ticketCount}">Adulto (R$120,00)</label>
-                    <input class="botao" type="radio" id="adulto-${ticketCount}" name="tipo-${ticketCount}" value="adulto">
-                </div>
+            <div class="type">
+                <label class="tit" for="adulto-${ticketCount}">Adulto (R$120,00)</label>
+                <input class="botao" type="radio" id="adulto-${ticketCount}" name="tipo-${ticketCount}" value="adulto" onclick="updateTicketPrice(${ticketCount})">
+            </div>
 
-                <div class="type">
-                    <label class="tit" for="infantil-${ticketCount}">Infantil (R$60,00)</label>
-                    <input class="botao" type="radio" id="infantil-${ticketCount}" name="tipo-${ticketCount}" value="infantil">
-                </div>
-            `;
+            <div class="type">
+                <label class="tit" for="infantil-${ticketCount}">Infantil (R$60,00)</label>
+                <input class="botao" type="radio" id="infantil-${ticketCount}" name="tipo-${ticketCount}" value="infantil" onclick="updateTicketPrice(${ticketCount})">
+            </div>
+        `;
 
-            // Adicionar o novo ingresso à lista
             document.getElementById('tickets-list').appendChild(ticketContainer);
 
-            // Verificar novamente se atingiu o limite de ingressos
             if (ticketCount >= maxTickets) {
                 document.getElementById('warning-message').style.display = 'block';
                 document.getElementById('add-button').disabled = true;
             }
+
+            // Inicializar o tipo selecionado para esse ingresso como null
+            selectedTicketTypes[ticketCount] = null;
+        }
+
+        function updateTicketPrice(ticketNumber) {
+            const selectedType = document.querySelector(`input[name="tipo-${ticketNumber}"]:checked`).value;
+
+            // Verificar se o tipo já foi selecionado previamente
+            const previousType = selectedTicketTypes[ticketNumber];
+
+            // Se já houver um tipo selecionado anteriormente, subtrair o valor desse tipo do total
+            if (previousType) {
+                totalAmount -= prices[previousType];
+            }
+
+            // Adicionar o novo valor selecionado ao total
+            totalAmount += prices[selectedType];
+
+            // Atualizar o tipo selecionado para o ingresso
+            selectedTicketTypes[ticketNumber] = selectedType;
+
+            updateTotalAmount();
         }
 
         function removeTicket() {
-            // Verifica se há ingressos adicionados
             if (ticketCount > 0) {
-                // Remove o último ingresso adicionado
                 const lastTicket = document.getElementById('ticket-' + ticketCount);
+                const selectedType = selectedTicketTypes[ticketCount];
+
+                // Verifica se há um tipo selecionado para o último ingresso removido e subtrai do total
+                if (selectedType) {
+                    totalAmount -= prices[selectedType];
+                }
+
                 if (lastTicket) {
                     lastTicket.remove();
                     ticketCount--;
                 }
 
-                // Se o aviso estiver sendo exibido, esconda-o e habilite o botão
+                updateTotalAmount();
+
                 if (ticketCount < maxTickets) {
                     document.getElementById('warning-message').style.display = 'none';
                     document.getElementById('add-button').disabled = false;
                 }
+
+                // Remover o tipo de ingresso desse ticket do controle de tipos selecionados
+                delete selectedTicketTypes[ticketCount + 1];
             }
         }
     </script>
-
 </body>
 </html>
