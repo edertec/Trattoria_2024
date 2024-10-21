@@ -3,43 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Listagem de Usuários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Remove os espaços entre as células */
+            margin-bottom: 20px; /* Espaço abaixo da tabela */
+        }
+
+        th, td {
+            padding: 10px; /* Espaçamento interno */
+            text-align: left; /* Alinha o texto à esquerda */
+            border: 1px solid #ddd; /* Borda das células */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Fundo cinza claro para cabeçalhos */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Cor de fundo para linhas pares */
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        input[type="radio"] {
+            margin: 0 5px;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <h2>Listar Usuarios</h2>
-        <ul>
-            <h3>id - nome - email - Admin</h3>
+    <h2>Listar Usuários</h2>
+    <h3>id - nome - email - Admin</h3>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Admin</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for user in users %}
-            <li>{{ user.id }} - {{ user.name }} - {{ user.email }} - {{'ADM' if user.is_admin else 'Não'}} </li>
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ 'ADM' if user.is_admin else 'Não' }}</td>
+            </tr>
             {% endfor %}
-        </ul><br><br>
-        
-        <h2>Listar Compradores</h2>
-        <ul>
-            <h3>id - nome - email - cpf - numero </h3>
+        </tbody>
+    </table>
+    
+    <h2>Listar Compradores</h2>
+    <h3>id - nome - email - cpf - numero</h3>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>CPF</th>
+                <th>Número</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for comprador in compradores %}
-            <li>{{ comprador.id }} - {{ comprador.name }} - {{ comprador.email }} - {{ comprador.cpf }} - {{ comprador.numero }} </li>
+            <tr>
+                <td>{{ comprador.id }}</td>
+                <td>{{ comprador.name }}</td>
+                <td>{{ comprador.email }}</td>
+                <td>{{ comprador.cpf }}</td>
+                <td>{{ comprador.numero }}</td>
+            </tr>
             {% endfor %}
-        </ul><br><br>
-
-        <h2>Listar Ingressos</h2>
-        <ul>
-            <h3>id - id_comprador - nome_titular - email - telefone - restricoes - tipo - pago</h3>
-            <form method="POST" action="/list_adm">
-                {% for ingresso in ingressos %}
-                <li>{{ ingresso.id }} - {{ ingresso.comprador_id }} - {{ ingresso.titular }} - {{ ingresso.email_contato }} - {{ ingresso.telefone }} - {{ ingresso.restricoes_alimentares }} - {{'Infantil' if ingresso.tipo else 'Adulto'}} - <br>Pago:{{'Sim' if ingresso.pago else 'Não'}}<br>
-                    <input type="hidden" name="id_{{ ingresso.id }}" value="{{ ingresso.id }}"> <!-- Campo oculto -->
-                    <input type="radio" id="pago_{{ ingresso.id }}" name="pagamento_{{ ingresso.id }}" value="pago" >
-                    <label for="pago_{{ ingresso.id }}">Pago</label><br>
-                    <input type="radio" id="nao_pago_{{ ingresso.id }}" name="pagamento_{{ ingresso.id }}" value="nao_pago">
-                    <label for="nao_pago_{{ ingresso.id }}">Não Pago</label><br><br>
-                </li>
-                {% endfor %}
-                <input type="submit" value="Verificar pagamento">
-            </form>
-
-        </ul>
-
-        
+        </tbody>
+    </table>
+    
+    <h2>Listar Ingressos</h2>
+    <h3>id - id_comprador - nome_titular - email - telefone - restricoes - tipo - pago</h3>
+    <hr>
+    <div class="form-container">
+        <form method="POST" action="/list_adm">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID Comprador</th>
+                        <th>Nome Titular</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Restrições</th>
+                        <th>Tipo</th>
+                        <th>Pago</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ingresso in ingressos %}
+                    <tr>
+                        <td>{{ ingresso.id }}</td>
+                        <td>{{ ingresso.comprador_id }}</td>
+                        <td>{{ ingresso.titular }}</td>
+                        <td>{{ ingresso.email_contato }}</td>
+                        <td>{{ ingresso.telefone }}</td>
+                        <td>{{ ingresso.restricoes_alimentares }}</td>
+                        <td>{{ 'Infantil' if ingresso.tipo else 'Adulto' }}</td>
+                        <td>{{ 'Sim' if ingresso.pago else 'Não' }}</td>
+                        <td>
+                            <input type="hidden" name="id_{{ ingresso.id }}" value="{{ ingresso.id }}">
+                            <input type="radio" id="pago_{{ ingresso.id }}" name="pagamento_{{ ingresso.id }}" value="pago">
+                            <label for="pago_{{ ingresso.id }}">Pago</label>
+                            <input type="radio" id="nao_pago_{{ ingresso.id }}" name="pagamento_{{ ingresso.id }}" value="nao_pago">
+                            <label for="nao_pago_{{ ingresso.id }}">Não Pago</label>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input type="submit" value="Verificar pagamento">
+        </form>
+    </div>
 </body>
 </html>
