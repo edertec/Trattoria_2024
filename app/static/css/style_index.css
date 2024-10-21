@@ -7,6 +7,10 @@ a{
     color: inherit;
 }
 
+h2{
+    font-size: calc(1vw + .5vh);
+}
+
 html{
     scroll-behavior: smooth;
 }
