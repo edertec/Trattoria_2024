@@ -313,7 +313,7 @@ header{
     background: rgb(2,20,10);
     background: linear-gradient(0deg, rgb(2, 20, 10) 90%, rgba(67,65,16,0) 100%);
 
-    margin-top: -50vh;
+    margin-top: -55vh;
     padding-top: 10vh;
     padding-bottom: 25vh;
 }
@@ -624,6 +624,10 @@ header{
 .ucs{
     width: auto;
     height: 6vw;
+}
+
+.adm{
+    width: 30vw;
 }
 
 @media (max-width: 680px) {
