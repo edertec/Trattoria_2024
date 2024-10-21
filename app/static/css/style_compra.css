@@ -196,3 +196,9 @@ textarea {
     font-weight: bold;
     display: none; /* Por padrão, a mensagem está oculta */
 }
+
+@media (max-width: 680px){
+    .botao {
+        width: 3vw;
+    }
+}
