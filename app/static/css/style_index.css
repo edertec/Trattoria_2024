@@ -308,7 +308,7 @@ header{
     display: flex;
     flex-direction: column;
 
-    height: 520vh;
+    height: 500vh;
 
     background: rgb(2,20,10);
     background: linear-gradient(0deg, rgb(2, 20, 10) 90%, rgba(67,65,16,0) 100%);
@@ -512,9 +512,7 @@ header{
 }
 
 .curso{
-    display: grid;
-    grid-template-columns: 50% 50%;
-
+    display: flex;
     justify-content: center;
 
     margin: 8vw 10vw 8vh 10vw;
@@ -541,6 +539,16 @@ header{
     width: 90%;
 
     color: antiquewhite;
+}
+
+.adm{
+    width: 30vw;
+    margin-right: 5vw;
+}
+
+.ti{
+    width: 30vw;
+    margin-right: 5vw;
 }
 
 .mapa{
@@ -624,10 +632,6 @@ header{
 .ucs{
     width: auto;
     height: 6vw;
-}
-
-.adm{
-    width: 30vw;
 }
 
 @media (max-width: 680px) {

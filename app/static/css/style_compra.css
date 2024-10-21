@@ -166,6 +166,11 @@ input::before {
     justify-content: center;
 }
 
+.texto-pequeno{
+    font-size: medium;
+    margin: 0;
+}
+
 .btn-finalizar {
     font-family: "Baskervville SC", serif;
     font-weight: 400;

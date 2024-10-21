@@ -78,15 +78,16 @@
                 <textarea id="restricoes-${ticketCount}" name="restricoes_alimentares-${ticketCount}" placeholder="Escreva quaisquer restrições alimentares"></textarea>
             
                             
-                <label for="tipo-${ticketCount}">Tipo do Ingresso </label>
+                <label for="tipo-${ticketCount}">Tipo do Ingresso</label>
+                <p class="texto-pequeno">*Crianças de 0 a 3 anos não pagam e não necessitam de ingresso</p>
 
                 <div class="type">
-                    <label class="tit" for="adulto-${ticketCount}">Adulto</label>
+                    <label class="tit" for="adulto-${ticketCount}">Adulto (R$120,00)</label>
                     <input class="botao" type="radio" id="adulto-${ticketCount}" name="tipo-${ticketCount}" value="adulto">
                 </div>
 
                 <div class="type">
-                    <label class="tit" for="infantil-${ticketCount}">Infantil</label>
+                    <label class="tit" for="infantil-${ticketCount}">Infantil (R$60,00)</label>
                     <input class="botao" type="radio" id="infantil-${ticketCount}" name="tipo-${ticketCount}" value="infantil">
                 </div>
             `;
