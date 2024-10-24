@@ -677,11 +677,11 @@ header{
     }
 
     .login_btn {
-        font-size: calc(2vw + .5vh);
+        font-size: calc(2vw + 1.1vh);
     }
 
     .slash {
-        font-size: calc(2vw + .5vh); 
+        font-size: calc(2vw + 1.1vh); 
     }
 
     .space {
